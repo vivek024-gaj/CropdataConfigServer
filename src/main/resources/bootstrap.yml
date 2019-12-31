@@ -1,0 +1,27 @@
+server:
+  port: 8082
+  
+spring:
+  application:
+    name: CropdataConfigServer
+  cloud:
+    config:
+      label: master
+      enabled: false
+      server:
+        bootstrap: true
+        git:
+          uri: file://home/cropdata-user/MyPracties/CropdataConfigServer
+  datasource:
+    continue-on-error: true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.0.62:3306/cropdata_config_server
+    username: configServer
+    password: 6j8AQ!d9Wfy65#H5sjzfG
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - 'env,refresh'
